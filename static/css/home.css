@@ -1,0 +1,8 @@
+{% load static %}
+
+<style>
+body {
+	background-color: #cccccc;
+  background-image:url("{% static 'images/1234.jpg' %}");
+}
+</style>

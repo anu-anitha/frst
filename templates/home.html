@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+</head> 
+
+<body>
+  {% block content %}
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>section</th> 
+        <th>image</th>
+       </tr>
+     </thead>
+    <tbody>
+      {% for i in data %}     
+      <tr class="danger">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.section}}</td> 
+        <td>{{i.images}}</td>
+
+       
+        <td><a href="{% url 'read' i.id %}">Read</a></td>   <!-- /app/read/1 -->
+        <td><a href="{% url 'update' i.id %}">update</a></td>   <!--  /app/update/1 -->
+        <td><a href="{% url 'delete' i.id %}">delete</a></td> <!-- /app/read/1 -->
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div> 
+{% endblock content %} 
+</body>
