@@ -15,8 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pr.settings')
 
 application = get_wsgi_application()
 
-from gunicorn.http import message
-message.MAX_REQUEST_LINE = 2**16 - 2
-
-from gunicorn.app.wsgiapp import run
-run()
+--limit-request-line 
