@@ -4,8 +4,12 @@ from . forms import StuForm, SignupForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
+
 
 # Create your views here.
+@login_required(login_url='login')
 def home(request):
 	data=Stu.objects.all()  
 	context={"data":data} 
